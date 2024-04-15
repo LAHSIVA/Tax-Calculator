@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tax Calculator</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Tax Calculator</h1>
+    <form id="tax-form">
+      <div class="input-field">
+        <label for="income">Enter Gross Annual Income <i class="fas fa-question-circle" id="income-info"></i></label>
+        <input type="number" id="income" placeholder="Enter Gross Annual Income" required>
+        <span class="tooltip" id="income-tooltip">Gross Annual Income refers to the total amount of income earned in a year before any deductions or taxes.</span>
+      </div>
+      <div class="input-field">
+        <label for="extra-income">Enter Extra Income <i class="fas fa-question-circle" id="extra-income-info"></i></label>
+        <input type="number" id="extra-income" placeholder="Enter Extra Income from Other Sources">
+        <span class="tooltip" id="extra-income-tooltip">Extra Income refers to any additional income earned from sources other than your primary employment.</span>
+      </div>
+      <div class="input-field">
+        <label for="age-group">Enter Age Group <i class="fas fa-question-circle" id="age-group-info"></i></label>
+        <select id="age-group">
+          <option value="<40">&lt; 40</option>
+          <option value=">=40&<60">&ge; 40 &lt; 60</option>
+          <option value=">=60">&ge; 60</option>
+        </select>
+        <span class="tooltip" id="age-group-tooltip">Age Group determines the tax rate applied to your income.</span>
+      </div>
+      <div class="input-field">
+        <label for="deductions">Enter Total Applicable Deductions <i class="fas fa-question-circle" id="deductions-info"></i></label>
+        <input type="number" id="deductions" placeholder="Add Total Applicable Deductions">
+        <span class="tooltip" id="deductions-tooltip">Total Applicable Deductions refers to any deductions eligible for reducing taxable income, such as expenses or contributions.</span>
+      </div>
+      <button type="submit">Calculate</button>
+    </form>
+  </div>
+
+  <div id="chart-container" class="chart-container">
+    <canvas id="taxPieChart" width="400" height="200"></canvas>
+    <canvas id="taxBarChart" width="400" height="200"></canvas>
+    <canvas id="taxLineChart" width="400" height="200"></canvas>
+  </div>
+
+  <!-- Modal -->
+  <div id="myModal" class="modal">
+    <!-- Modal content -->
+    <div class="modal-content">
+      <span class="close" id="closeButton">&times;</span>
+      <p id="modal-content"></p>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2023 CodesDR | All rights reserved</p>
+  </footer>
+
+  <script src="func.js"></script>
+</body>
+</html>
